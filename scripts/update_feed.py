@@ -5,19 +5,25 @@ from datetime import datetime
 import pytz
 
 # 这里配置你的 RSS 源地址
-# 你需要把之前 JS 里用的 RSS 地址填到这里对应的位置
+# 基于你 index.html 中的关键词生成的 Google News 搜索链接
 RSS_SOURCES = {
     "policy": [
-        "https://feedx.net/rss/caixin/finance.xml", # 示例，请替换为你原来的政策法规 RSS
+        # 关键词：检验检测 政策
+        "https://news.google.com/rss/search?hl=zh-CN&gl=CN&ceid=CN:zh-Hans&q=%E6%A3%80%E9%AA%8C%E6%A3%80%E6%B5%8B+%E6%94%BF%E7%AD%96"
     ],
     "mergers": [
-        "https://rsshub.app/36kr/newsflashes", # 示例，请替换为你原来的收并购 RSS
+        # 关键词：检验检测 收并购
+        "https://news.google.com/rss/search?hl=zh-CN&gl=CN&ceid=CN:zh-Hans&q=%E6%A3%80%E9%AA%8C%E6%A3%80%E6%B5%8B+%E6%94%B6%E5%B9%B6%E8%B4%AD"
     ],
     "companies": {
-        "huace": "https://rsshub.app/xueqiu/user/8566580983", # 华测检测 (示例)
-        "guangdian": "https://rsshub.app/xueqiu/user/12345678", # 广电计量 (请替换)
-        "sushi": "https://rsshub.app/xueqiu/user/12345678", # 苏试试验 (请替换)
-        "anche": "https://rsshub.app/xueqiu/user/12345678"  # 安车检测 (请替换)
+        # 关键词：华测检测
+        "huace": "https://news.google.com/rss/search?hl=zh-CN&gl=CN&ceid=CN:zh-Hans&q=%E5%8D%8E%E6%B5%8B%E6%A3%80%E6%B5%8B",
+        # 关键词：广电计量
+        "guangdian": "https://news.google.com/rss/search?hl=zh-CN&gl=CN&ceid=CN:zh-Hans&q=%E5%B9%BF%E7%94%B5%E8%AE%A1%E9%87%8F",
+        # 关键词：苏试试验
+        "sushi": "https://news.google.com/rss/search?hl=zh-CN&gl=CN&ceid=CN:zh-Hans&q=%E8%8B%8F%E8%AF%95%E8%AF%95%E9%AA%8C",
+        # 关键词：安车检测
+        "anche": "https://news.google.com/rss/search?hl=zh-CN&gl=CN&ceid=CN:zh-Hans&q=%E5%AE%89%E8%BD%A6%E6%A3%80%E6%B5%8B"
     }
 }
 
