@@ -8,338 +8,153 @@
 </head>
 <body class="bg-gray-100 min-h-screen py-8">
     <div class="container mx-auto px-4 max-w-6xl">
-        <!-- 主标题 -->
         <h1 class="text-4xl font-bold text-center text-gray-800 mb-6">检验检测行业信息面板 V3.0</h1>
         
-        <!-- 控制区域 -->
         <div class="text-center mb-8">
-            <button id="refresh-all-btn" 
-                    class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-colors duration-200 mr-4">
-                刷新全部
-            </button>
-            <span class="text-gray-600">最后更新：<span id="last-updated" class="font-medium">--</span></span>
+            <div class="inline-flex items-center justify-center space-x-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <span class="text-gray-600 text-sm">数据最后更新于：<span id="last-updated" class="font-bold text-gray-800">--</span></span>
+            </div>
+            <p class="text-xs text-gray-400 mt-2">（系统每日早8点自动抓取更新）</p>
         </div>
         
-        <!-- 三个内容板块 -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             
-            <!-- 板块一：政策与法规 -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">政策与法规</h2>
-                <ul id="policy-news-list" class="space-y-3">
-                    <li class="text-gray-500 text-sm animate-pulse">数据加载中...</li>
+            <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <h2 class="text-xl font-bold text-blue-800 mb-4 border-b pb-2 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    政策与法规
+                </h2>
+                <ul id="policy-list" class="space-y-3 min-h-[100px]">
+                    <li class="animate-pulse flex space-x-4"><div class="flex-1 space-y-2 py-1"><div class="h-4 bg-gray-200 rounded w-3/4"></div><div class="h-4 bg-gray-200 rounded"></div></div></li>
                 </ul>
             </div>
             
-            <!-- 板块二：行业与收并购动态 -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">行业与收并购动态</h2>
-                <ul id="industry-news-list" class="space-y-3">
-                    <li class="text-gray-500 text-sm animate-pulse">数据加载中...</li>
+            <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <h2 class="text-xl font-bold text-purple-800 mb-4 border-b pb-2 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    行业与收并购动态
+                </h2>
+                <ul id="mergers-list" class="space-y-3 min-h-[100px]">
+                    <li class="animate-pulse flex space-x-4"><div class="flex-1 space-y-2 py-1"><div class="h-4 bg-gray-200 rounded w-3/4"></div><div class="h-4 bg-gray-200 rounded"></div></div></li>
                 </ul>
             </div>
             
-            <!-- 板块三：重点上市公司新闻 -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">重点上市公司新闻</h2>
+            <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <h2 class="text-xl font-bold text-orange-800 mb-4 border-b pb-2 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    重点上市公司新闻
+                </h2>
                 
-                <!-- 华测检测 -->
-                <div class="mb-6">
-                    <h3 class="text-lg font-medium text-gray-700 mb-2 border-l-4 border-blue-500 pl-3">华测检测</h3>
-                    <ul id="huace-list" class="space-y-2">
-                        <li class="text-gray-500 text-sm animate-pulse">数据加载中...</li>
-                    </ul>
-                </div>
-                
-                <!-- 广电计量 -->
-                <div class="mb-6">
-                    <h3 class="text-lg font-medium text-gray-700 mb-2 border-l-4 border-green-500 pl-3">广电计量</h3>
-                    <ul id="guangdian-list" class="space-y-2">
-                        <li class="text-gray-500 text-sm animate-pulse">数据加载中...</li>
-                    </ul>
-                </div>
-                
-                <!-- 苏试试验 -->
-                <div class="mb-6">
-                    <h3 class="text-lg font-medium text-gray-700 mb-2 border-l-4 border-purple-500 pl-3">苏试试验</h3>
-                    <ul id="sushi-list" class="space-y-2">
-                        <li class="text-gray-500 text-sm animate-pulse">数据加载中...</li>
-                    </ul>
-                </div>
-                
-                <!-- 安车检测 -->
-                <div class="mb-4">
-                    <h3 class="text-lg font-medium text-gray-700 mb-2 border-l-4 border-orange-500 pl-3">安车检测</h3>
-                    <ul id="anche-list" class="space-y-2">
-                        <li class="text-gray-500 text-sm animate-pulse">数据加载中...</li>
-                    </ul>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 border-l-4 border-blue-500 pl-2">华测检测</h3>
+                        <ul id="huace-list" class="space-y-2"><li class="h-2 bg-gray-200 rounded w-full animate-pulse"></li></ul>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 border-l-4 border-green-500 pl-2">广电计量</h3>
+                        <ul id="guangdian-list" class="space-y-2"><li class="h-2 bg-gray-200 rounded w-full animate-pulse"></li></ul>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 border-l-4 border-purple-500 pl-2">苏试试验</h3>
+                        <ul id="sushi-list" class="space-y-2"><li class="h-2 bg-gray-200 rounded w-full animate-pulse"></li></ul>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 border-l-4 border-orange-500 pl-2">安车检测</h3>
+                        <ul id="anche-list" class="space-y-2"><li class="h-2 bg-gray-200 rounded w-full animate-pulse"></li></ul>
+                    </div>
                 </div>
             </div>
             
         </div>
         
-        <!-- 页脚 -->
-        <footer class="text-center text-gray-600 mt-8">
-            <p class="text-sm">检验检测行业信息面板 V3.0 - 动态RSS新闻</p>
+        <footer class="text-center text-gray-400 mt-12 text-sm">
+            <p>© 2025 ResearchBo Dashboard | 每日自动构建</p>
         </footer>
     </div>
 
     <script>
-        /**
-         * 构建Google News RSS URL的安全方法
-         * @param {string} keyword - 搜索关键词
-         * @returns {string} 完整的RSS URL
-         */
-        function buildGoogleNewsURL(keyword) {
-            const baseUrl = 'https://news.google.com/rss/search';
-            const params = new URLSearchParams({
-                q: keyword,
-                hl: 'zh-CN',
-                gl: 'CN',
-                ceid: 'CN:zh-Hans'
-            });
-            return `${baseUrl}?${params.toString()}`;
-        }
-
-        /**
-         * 异步函数：获取并显示新闻
-         * @param {string} keyword - 搜索关键词
-         * @param {string} elementId - 目标DOM元素ID
-         * @param {number} maxItems - 最大显示条数，默认为5
-         */
-        async function fetchAndDisplayNews(keyword, elementId, maxItems = 5) {
-            const listElement = document.getElementById(elementId);
-            
-            if (!listElement) {
-                console.error(`元素 #${elementId} 未找到`);
-                return;
-            }
-            
-            // 显示加载状态
-            listElement.innerHTML = '<li class="text-gray-500 text-sm animate-pulse">数据加载中...</li>';
-            
+        // 核心逻辑：直接读取 news_data.json
+        // 不再实时请求 Google News，速度提升 100 倍
+        
+        async function loadData() {
             try {
-                // 构建Google News RSS URL
-                const rssUrl = buildGoogleNewsURL(keyword);
-                
-                // 使用RSS转JSON服务，正确编码RSS URL
-                const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-                
-                console.log(`正在获取新闻: ${keyword}`, rssUrl);
-                
-                // 设置请求超时
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 10000);
-                
-                const response = await fetch(proxyUrl, {
-                    signal: controller.signal,
-                    headers: {
-                        'Accept': 'application/json',
-                    }
-                });
-                
-                clearTimeout(timeoutId);
+                // 加载根目录下的 json 文件
+                // 添加时间戳防止浏览器缓存旧数据
+                const response = await fetch('news_data.json?t=' + new Date().getTime());
                 
                 if (!response.ok) {
-                    throw new Error(`网络请求失败 (${response.status}): ${response.statusText}`);
+                    throw new Error('找不到数据文件，请检查 GitHub Action 是否成功运行');
                 }
-                
+
                 const data = await response.json();
                 
-                // 检查RSS2JSON API响应状态
-                if (data.status !== 'ok') {
-                    throw new Error(`RSS解析失败: ${data.message || '服务响应异常'}`);
-                }
+                // 1. 更新时间
+                document.getElementById('last-updated').textContent = data.update_time;
+
+                // 2. 渲染各板块
+                renderList(data.policy, 'policy-list');
+                renderList(data.mergers, 'mergers-list');
                 
-                // 清空加载状态
-                listElement.innerHTML = '';
+                // 3. 渲染公司
+                renderList(data.companies.huace, 'huace-list', true);
+                renderList(data.companies.guangdian, 'guangdian-list', true);
+                renderList(data.companies.sushi, 'sushi-list', true);
+                renderList(data.companies.anche, 'anche-list', true);
+
+            } catch (error) {
+                console.error("加载失败:", error);
+                document.getElementById('last-updated').innerText = "数据加载失败，请稍后刷新";
+                alert("初次部署可能需要等待几分钟，请稍后刷新页面！");
+            }
+        }
+
+        // 通用渲染函数
+        function renderList(items, elementId, isSimple = false) {
+            const listEl = document.getElementById(elementId);
+            listEl.innerHTML = ''; // 清空骨架屏
+
+            if (!items || items.length === 0) {
+                listEl.innerHTML = '<li class="text-gray-400 text-xs italic">暂无今日更新</li>';
+                return;
+            }
+
+            items.forEach(item => {
+                const li = document.createElement('li');
+                // 清洗标题中的 HTML 标签 (Google News 有时会带 <b> 标签)
+                const cleanTitle = item.title.replace(/<[^>]*>?/gm, '').replace('&nbsp;', ' '); 
                 
-                // 处理新闻条目
-                const items = data.items ? data.items.slice(0, maxItems) : [];
-                
-                if (items.length === 0) {
-                    listElement.innerHTML = '<li class="text-gray-500 text-sm">暂无相关新闻数据</li>';
-                    return;
-                }
-                
-                // 创建新闻列表
-                items.forEach((item, index) => {
-                    const li = document.createElement('li');
-                    
-                    // 清理标题，移除HTML标签
-                    const cleanTitle = item.title ? item.title.replace(/<[^>]*>/g, '').trim() : '无标题';
-                    const newsLink = item.link || '#';
-                    
+                if (isSimple) {
+                    // 极简模式（用于公司列表）
                     li.innerHTML = `
-                        <a href="${newsLink}" target="_blank" rel="noopener noreferrer"
-                           class="block text-blue-600 hover:text-blue-800 hover:bg-blue-50 p-2 rounded transition-colors text-sm leading-relaxed">
-                            <span class="font-medium">${cleanTitle}</span>
-                            ${item.pubDate ? `<span class="block text-xs text-gray-500 mt-1">${new Date(item.pubDate).toLocaleDateString('zh-CN')}</span>` : ''}
+                        <a href="${item.link}" target="_blank" class="block group">
+                            <span class="text-gray-700 text-sm group-hover:text-blue-600 transition-colors line-clamp-1">
+                                • ${cleanTitle}
+                            </span>
+                            <span class="text-xs text-gray-400 pl-3 block">${item.published.split('T')[0] || '今日'}</span>
                         </a>
                     `;
-                    listElement.appendChild(li);
-                });
-                
-                console.log(`成功加载 ${items.length} 条新闻: ${keyword}`);
-                
-            } catch (error) {
-                console.error(`获取新闻失败 (${keyword}):`, error);
-                
-                // 根据错误类型显示不同的错误信息
-                let errorMessage = '加载失败';
-                
-                if (error.name === 'AbortError') {
-                    errorMessage = '请求超时';
-                } else if (error.message.includes('网络')) {
-                    errorMessage = '网络连接错误';
-                } else if (error.message.includes('RSS解析')) {
-                    errorMessage = 'RSS数据解析失败';
                 } else {
-                    errorMessage = `加载失败: ${error.message}`;
+                    // 详细模式（用于政策和行业动态）
+                    li.innerHTML = `
+                        <a href="${item.link}" target="_blank" class="block p-3 rounded-md hover:bg-blue-50 transition-colors border border-transparent hover:border-blue-100 group">
+                            <h3 class="font-medium text-gray-800 text-sm mb-1 group-hover:text-blue-700 line-clamp-2">${cleanTitle}</h3>
+                            <div class="flex justify-between items-center mt-1">
+                                <span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded">${item.published.split('T')[0] || 'News'}</span>
+                                <span class="text-xs text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">点击阅读 &rarr;</span>
+                            </div>
+                        </a>
+                    `;
                 }
-                
-                listElement.innerHTML = `
-                    <li class="text-red-500 text-sm">
-                        <span class="font-medium">${errorMessage}</span>
-                    </li>
-                    <li class="text-gray-500 text-xs mt-2">
-                        请检查网络连接或稍后重试
-                    </li>
-                `;
-            }
-        }
-        
-        /**
-         * 更新时间戳到指定元素
-         */
-        function updateTimestamp() {
-            const now = new Date();
-            const timestamp = now.toLocaleString('zh-CN', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            }).replace(/\//g, '-');
-            
-            const updateElement = document.getElementById('last-updated');
-            if (updateElement) {
-                updateElement.textContent = timestamp;
-            }
-        }
-        
-        /**
-         * 刷新所有新闻板块
-         * 这个函数会依次为页面上所有的卡片和公司重新调用fetchAndDisplayNews
-         */
-        function refreshAllNews() {
-            console.log('开始刷新所有新闻板块...');
-            
-            // 更新时间戳
-            updateTimestamp();
-            
-            // 并行加载所有板块的新闻
-            const newsRequests = [
-                // 政策与法规板块
-                fetchAndDisplayNews('检验检测 政策', 'policy-news-list', 5),
-                
-                // 行业与收并购动态板块
-                fetchAndDisplayNews('检验检测 收并购', 'industry-news-list', 5),
-                
-                // 重点上市公司新闻
-                fetchAndDisplayNews('华测检测', 'huace-list', 3),
-                fetchAndDisplayNews('广电计量', 'guangdian-list', 3),
-                fetchAndDisplayNews('苏试试验', 'sushi-list', 3),
-                fetchAndDisplayNews('安车检测', 'anche-list', 3)
-            ];
-            
-            Promise.allSettled(newsRequests).then(results => {
-                const successful = results.filter(result => result.status === 'fulfilled').length;
-                const total = results.length;
-                console.log(`新闻加载完成: ${successful}/${total} 个板块成功`);
-                
-                // 如果有失败的请求，更新时间戳以反映最新的刷新时间
-                updateTimestamp();
+                listEl.appendChild(li);
             });
         }
-        
-        /**
-         * 页面初始化
-         */
-        function initializePage() {
-            console.log('页面加载完成，开始初始化...');
-            
-            // 绑定刷新按钮事件
-            const refreshBtn = document.getElementById('refresh-all-btn');
-            if (refreshBtn) {
-                refreshBtn.addEventListener('click', () => {
-                    console.log('手动刷新触发...');
-                    refreshBtn.disabled = true;
-                    refreshBtn.textContent = '刷新中...';
-                    
-                    refreshAllNews();
-                    
-                    // 2秒后恢复按钮状态
-                    setTimeout(() => {
-                        refreshBtn.disabled = false;
-                        refreshBtn.textContent = '刷新全部';
-                    }, 2000);
-                });
-            }
-            
-            // 初始化时间戳
-            updateTimestamp();
-            
-            // 延迟500ms后开始加载新闻，确保页面完全渲染
-            setTimeout(() => {
-                refreshAllNews();
-            }, 500);
-        }
-        
-        // DOM加载完成后执行初始化
-        document.addEventListener('DOMContentLoaded', initializePage);
-        
-        // 页面可见性改变时的处理
-        document.addEventListener('visibilitychange', function() {
-            if (!document.hidden) {
-                console.log('页面重新获得焦点，检查是否需要更新数据...');
-                const lastUpdate = document.getElementById('last-updated').textContent;
-                if (lastUpdate && lastUpdate !== '--') {
-                    try {
-                        const lastUpdateTime = new Date(lastUpdate.replace(/-/g, '/'));
-                        const now = new Date();
-                        const diffMinutes = (now - lastUpdateTime) / (1000 * 60);
-                        
-                        if (diffMinutes > 5) {
-                            console.log('数据已过期，重新加载...');
-                            refreshAllNews();
-                        }
-                    } catch (e) {
-                        console.log('时间解析失败，重新加载数据...');
-                        refreshAllNews();
-                    }
-                }
-            }
-        });
-        
-        // 定时自动刷新（每30分钟）
-        setInterval(() => {
-            console.log('定时自动刷新新闻数据...');
-            refreshAllNews();
-        }, 30 * 60 * 1000);
-        
-        // 暴露刷新函数到全局作用域，方便调试
-        window.refreshNews = refreshAllNews;
-        
-        // 添加键盘快捷键支持（Ctrl+R 或 F5 手动刷新）
-        document.addEventListener('keydown', function(event) {
-            if ((event.ctrlKey && event.key === 'r') || event.key === 'F5') {
-                event.preventDefault();
-                console.log('键盘快捷键刷新触发...');
-                refreshAllNews();
-            }
-        });
+
+        // 页面加载后立即执行
+        window.addEventListener('DOMContentLoaded', loadData);
     </script>
 </body>
 </html>
