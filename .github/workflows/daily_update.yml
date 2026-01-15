@@ -1,0 +1,39 @@
+name: Daily News Update
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天北京时间早8点
+  workflow_dispatch: # 允许手动点按钮
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run update script
+      run: |
+        # 注意：这里我们指明了去 scripts 文件夹找文件
+        python scripts/update_feed.py
+
+    - name: Commit and push if changed
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'
+        git add news_data.json
+        git commit -m "Auto update news data" || exit 0
+        git push
